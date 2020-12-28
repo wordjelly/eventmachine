@@ -188,8 +188,11 @@ module EventMachine
 
     # @private
     def stop_tcp_server sig
+      #exit(1)
       s = Reactor.instance.get_selectable(sig)
-      s.schedule_close
+      puts "is there an instance :#{!s.blank?}"
+    
+      s.schedule_close unless s.blank?
     end
 
     # @private
