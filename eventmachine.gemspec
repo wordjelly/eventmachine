@@ -1,7 +1,7 @@
 require File.expand_path('../lib/em/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = 'eventmachine'
+  s.name = 'wj_eventmachine'
   s.version = EventMachine::VERSION
   s.homepage = 'https://github.com/eventmachine/eventmachine'
   s.licenses = ['Ruby', 'GPL-2.0']
