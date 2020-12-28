@@ -190,9 +190,10 @@ module EventMachine
     def stop_tcp_server sig
       #exit(1)
       s = Reactor.instance.get_selectable(sig)
-      puts "is there an instance :#{!s.blank?}"
-    
-      s.schedule_close unless s.blank?
+      #puts "is there an instance :#{!s.blank?}"
+      unless s.nil?
+        s.schedule_close
+      end 
     end
 
     # @private
@@ -541,11 +542,14 @@ module EventMachine
     end
 
     def get_selectable uuid
+      #raise Error.new("selectable does not exist") if @selectables[uuid].nil?
+      #puts "selectables are #{@selectables}"
       @selectables[uuid]
     end
 
     def run
       raise Error.new( "already running" ) if @running
+      puts "-------- RUNNING ------------ "
       @running = true
 
       begin
